@@ -23,6 +23,9 @@
 @property (strong, nonatomic) NSString *monsterName;
 @property (strong, nonatomic) NSString *monsterDescription;
 
+@property (strong, nonatomic) BranchUniversalObject *buo;
+@property (strong, nonatomic) BranchLinkProperties *lp;
+
 @property (weak, nonatomic) IBOutlet UIView *botLayerOneColor;
 @property (weak, nonatomic) IBOutlet UIImageView *botLayerTwoBody;
 @property (weak, nonatomic) IBOutlet UIImageView *botLayerThreeFace;
@@ -44,6 +47,46 @@
 
 static CGFloat MONSTER_HEIGHT = 0.4f;
 static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
+
+- (BranchUniversalObject *)buo {
+    if (_buo == nil) {
+        // Get branch dict
+        NSDictionary *branchDict = [self prepareBranchDict];
+        
+        _buo = [[BranchUniversalObject alloc] initWithCanonicalIdentifier:@"content/my-monster"];
+        _buo.title = branchDict[@"$og_title"];
+        _buo.contentDescription = branchDict[@"$og_description"];
+        _buo.imageUrl = branchDict[@"$og_image_url"];
+        /*
+        _buo.publiclyIndex = YES;
+        _buo.locallyIndex = YES;
+        _buo.contentMetadata.customMetadata[@"key1"] = @"value1";
+         */
+    }
+    return _buo;
+}
+
+- (BranchLinkProperties *)lp {
+    if (_lp == nil) {
+        // Get branch dict
+        NSDictionary *branchDict = [self prepareBranchDict];
+        
+        _lp = [[BranchLinkProperties alloc] init];
+        /*
+        _lp.feature = @"facebook";
+        _lp.channel = @"sharing";
+        _lp.campaign = @"content 123 launch";
+        _lp.stage = @"new user";
+        _lp.tags = @[@"one", @"two", @"three"];
+         */
+        
+        [_lp addControlParam:@"color_index" withValue: branchDict[@"color_index"]];
+        [_lp addControlParam:@"body_index" withValue: branchDict[@"body_index"]];
+        [_lp addControlParam:@"face_index" withValue: branchDict[@"face_index"]];
+        [_lp addControlParam:@"monster_name" withValue: branchDict[@"monster_name"]];
+    }
+    return _lp;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -92,6 +135,7 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     
     // Get short URL
     
+    /*
     // Get branch dict
     NSDictionary *branchDict = [self prepareBranchDict];
     
@@ -99,31 +143,28 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     buo.title = branchDict[@"$og_title"];
     buo.contentDescription = branchDict[@"$og_description"];
     buo.imageUrl = branchDict[@"$og_image_url"];
-    /*
     buo.publiclyIndex = YES;
     buo.locallyIndex = YES;
     buo.contentMetadata.customMetadata[@"key1"] = @"value1";
-     */
     
     BranchLinkProperties *lp = [[BranchLinkProperties alloc] init];
-    /*
     lp.feature = @"facebook";
     lp.channel = @"sharing";
     lp.campaign = @"content 123 launch";
     lp.stage = @"new user";
     lp.tags = @[@"one", @"two", @"three"];
-     */
     
     [lp addControlParam:@"color_index" withValue: branchDict[@"color_index"]];
     [lp addControlParam:@"body_index" withValue: branchDict[@"body_index"]];
     [lp addControlParam:@"face_index" withValue: branchDict[@"face_index"]];
     [lp addControlParam:@"monster_name" withValue: branchDict[@"monster_name"]];
+     */
 
-    // note: no need for weakself reference as block retains self but self doesn't retain block
-    [buo getShortUrlWithLinkProperties:lp andCallback:^(NSString* url, NSError* error) {
+    __weak MonsterViewerViewController *weakSelf = self;
+    [self.buo getShortUrlWithLinkProperties:self.lp andCallback:^(NSString* url, NSError* error) {
         if (!error) {
-            self.urlTextView.text = url;
-            [self.progressBar hide];
+            weakSelf.urlTextView.text = url;
+            [weakSelf.progressBar hide];
         }
     }];
 
@@ -226,6 +267,8 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
         smsViewController.messageComposeDelegate = self;
         
         // Create Branch link as soon as the user clicks
+        
+        
         // Pass in the special Branch dictionary of keys/values you want to receive in the AppDelegate on initSession
         // Specify the channel to be 'sms' for tracking on the Branch dashboard
         [self.progressBar hide];
