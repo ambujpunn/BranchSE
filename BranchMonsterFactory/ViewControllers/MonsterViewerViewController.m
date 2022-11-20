@@ -88,10 +88,46 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     [event logEvent];
     
     
-    
     // #9 TODO: load a URL just for display on the viewer page
-    self.urlTextView.text = @"";
-    [self.progressBar hide];
+    
+    // Get short URL
+    
+    // Get branch dict
+    NSDictionary *branchDict = [self prepareBranchDict];
+    
+    BranchUniversalObject *buo = [[BranchUniversalObject alloc] initWithCanonicalIdentifier:@"content/my-monster"];
+    buo.title = branchDict[@"$og_title"];
+    buo.contentDescription = branchDict[@"$og_description"];
+    buo.imageUrl = branchDict[@"$og_image_url"];
+    /*
+    buo.publiclyIndex = YES;
+    buo.locallyIndex = YES;
+    buo.contentMetadata.customMetadata[@"key1"] = @"value1";
+     */
+    
+    BranchLinkProperties *lp = [[BranchLinkProperties alloc] init];
+    /*
+    lp.feature = @"facebook";
+    lp.channel = @"sharing";
+    lp.campaign = @"content 123 launch";
+    lp.stage = @"new user";
+    lp.tags = @[@"one", @"two", @"three"];
+     */
+    
+    [lp addControlParam:@"color_index" withValue: branchDict[@"color_index"]];
+    [lp addControlParam:@"body_index" withValue: branchDict[@"body_index"]];
+    [lp addControlParam:@"face_index" withValue: branchDict[@"face_index"]];
+    [lp addControlParam:@"monster_name" withValue: branchDict[@"monster_name"]];
+
+    // note: no need for weakself reference as block retains self but self doesn't retain block
+    [buo getShortUrlWithLinkProperties:lp andCallback:^(NSString* url, NSError* error) {
+        if (!error) {
+            self.urlTextView.text = url;
+            [self.progressBar hide];
+        }
+    }];
+
+    
 }
 
 - (IBAction)cmdChangeClick:(id)sender {
