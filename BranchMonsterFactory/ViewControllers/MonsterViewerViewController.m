@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Branch, Inc All rights reserved.
 //
 
+@import Branch;
 #import "NetworkProgressBar.h"
 #import "MonsterViewerViewController.h"
 #import "MonsterPartsFactory.h"
@@ -46,6 +47,8 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+ 
     [self.botLayerOneColor setBackgroundColor:[MonsterPartsFactory colorForIndex:[MonsterPreferences getColorIndex]]];
     [self.botLayerTwoBody setImage:[MonsterPartsFactory imageForBody:[MonsterPreferences getBodyIndex]]];
     [self.botLayerThreeFace setImage:[MonsterPartsFactory imageForFace:[MonsterPreferences getFaceIndex]]];
@@ -77,6 +80,14 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     [self.view addSubview:self.progressBar];
     
     // #8 TODO: track that the user viewed the monster view page
+    
+    // Custom event tracking "monster_view"
+    
+    BranchEvent *event = [BranchEvent customEventWithName:@"monster_view"];
+    event.customData = self.monsterMetadata;
+    [event logEvent];
+    
+    
     
     // #9 TODO: load a URL just for display on the viewer page
     self.urlTextView.text = @"";
