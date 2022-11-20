@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Branch, Inc All rights reserved.
 //
 
+@import Branch;
 #import "MonsterCreatorViewController.h"
 #import "MonsterPreferences.h"
 #import "MonsterPartsFactory.h"
@@ -38,7 +39,7 @@ static CGFloat SIDE_SPACE = 7.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     for (int i = 0; i < [self.colorViews count]; i++) {
         UIView *currView = [self.colorViews objectAtIndex:i];
         [currView setBackgroundColor:[MonsterPartsFactory colorForIndex:i]];
@@ -69,6 +70,10 @@ static CGFloat SIDE_SPACE = 7.0;
     toolbar.items = [NSArray arrayWithObject:barButton];
     
     // TODO: track that the user viewed the monster edit page
+    // Custom event tracking "monster_edit"
+    
+    BranchEvent *event = [BranchEvent customEventWithName:@"monster_edit"];
+    [event logEvent];
     
     self.etxtName.inputAccessoryView = toolbar;
     [self.etxtName addTarget:self.etxtName

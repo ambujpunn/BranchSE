@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Branch, Inc All rights reserved.
 //
 
+@import Branch;
 #import "AppDelegate.h"
 #import "MonsterPreferences.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "Branch.h"
 
 @interface AppDelegate ()
 
