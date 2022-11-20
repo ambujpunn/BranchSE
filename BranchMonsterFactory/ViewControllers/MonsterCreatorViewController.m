@@ -10,7 +10,6 @@
 #import "MonsterPreferences.h"
 #import "MonsterPartsFactory.h"
 #import "ImageCollectionViewCell.h"
-#import "Branch.h"
 
 @interface MonsterCreatorViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -69,8 +68,7 @@ static CGFloat SIDE_SPACE = 7.0;
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     toolbar.items = [NSArray arrayWithObject:barButton];
     
-    // track that the user viewed the monster edit page
-    [[Branch getInstance] userCompletedAction:@"monster_edit"];
+    // TODO: track that the user viewed the monster edit page
     
     self.etxtName.inputAccessoryView = toolbar;
     [self.etxtName addTarget:self.etxtName
