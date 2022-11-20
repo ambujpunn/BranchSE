@@ -267,15 +267,19 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
         smsViewController.messageComposeDelegate = self;
         
         // Create Branch link as soon as the user clicks
-        
-        
         // Pass in the special Branch dictionary of keys/values you want to receive in the AppDelegate on initSession
         // Specify the channel to be 'sms' for tracking on the Branch dashboard
-        [self.progressBar hide];
         
-        NSString *url = @"http://example.com"; // TODO: Remove when Branch is added
-        smsViewController.body = [NSString stringWithFormat:@"Check out my Branchster named %@ at %@", self.monsterName, url];
-        [self presentViewController:smsViewController animated:YES completion:nil];
+        __weak MonsterViewerViewController *weakSelf = self;
+        self.lp.channel = @"sms";
+        [self.buo getShortUrlWithLinkProperties:self.lp andCallback:^(NSString* url, NSError* error) {
+            if (!error) {
+            [weakSelf.progressBar hide];
+            
+            smsViewController.body = [NSString stringWithFormat:@"Check out my Branchster named %@ at %@", self.monsterName, url];
+            [weakSelf presentViewController:smsViewController animated:YES completion:nil];
+            }
+        }];
     } else {
         UIAlertView *alert_Dialog = [[UIAlertView alloc] initWithTitle:@"No Message Support" message:@"This device does not support messaging" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert_Dialog show];
