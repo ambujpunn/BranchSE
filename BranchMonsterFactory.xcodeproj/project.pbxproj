@@ -3,13 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		46FD92CE1A9AD0A70028A385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FD945E1A4D250C00D6BFA8 /* Main.storyboard */; };
 		612D646F2929AB29009F4D14 /* BranchMonsterFactory.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 612D646E2929A878009F4D14 /* BranchMonsterFactory.entitlements */; };
-		6705921019BBB7430039DAE1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6705920F19BBB7430039DAE1 /* AdSupport.framework */; };
+		612D64722929AE3B009F4D14 /* Branch in Frameworks */ = {isa = PBXBuildFile; productRef = 612D64712929AE3B009F4D14 /* Branch */; };
+		612D64752929AE7D009F4D14 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D64742929AE7D009F4D14 /* CoreServices.framework */; };
+		612D64772929AE87009F4D14 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D64762929AE87009F4D14 /* SystemConfiguration.framework */; };
+		612D64792929AE94009F4D14 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D64782929AE94009F4D14 /* WebKit.framework */; };
+		612D647B2929AEA0009F4D14 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D647A2929AEA0009F4D14 /* CoreSpotlight.framework */; };
+		612D647D2929AEAB009F4D14 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D647C2929AEAB009F4D14 /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		612D647F2929AEB9009F4D14 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D647E2929AEB9009F4D14 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		612D64812929AEC7009F4D14 /* LinkPresentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D64802929AEC7009F4D14 /* LinkPresentation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6705921019BBB7430039DAE1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6705920F19BBB7430039DAE1 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6705923B19BBD0060039DAE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6705923A19BBD0060039DAE1 /* UIKit.framework */; };
 		6705923E19BBE22D0039DAE1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6705923D19BBE22D0039DAE1 /* MessageUI.framework */; };
 		6705924019BBEBC40039DAE1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6705923F19BBEBC40039DAE1 /* Social.framework */; };
@@ -75,6 +83,13 @@
 
 /* Begin PBXFileReference section */
 		612D646E2929A878009F4D14 /* BranchMonsterFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BranchMonsterFactory.entitlements; sourceTree = "<group>"; };
+		612D64742929AE7D009F4D14 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		612D64762929AE87009F4D14 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		612D64782929AE94009F4D14 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		612D647A2929AEA0009F4D14 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		612D647C2929AEAB009F4D14 /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		612D647E2929AEB9009F4D14 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		612D64802929AEC7009F4D14 /* LinkPresentation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LinkPresentation.framework; path = System/Library/Frameworks/LinkPresentation.framework; sourceTree = SDKROOT; };
 		670591E919BBAC630039DAE1 /* Branchsters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Branchsters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6705920F19BBB7430039DAE1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		6705923A19BBD0060039DAE1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -155,18 +170,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612D64812929AEC7009F4D14 /* LinkPresentation.framework in Frameworks */,
+				612D647F2929AEB9009F4D14 /* StoreKit.framework in Frameworks */,
+				6705921019BBB7430039DAE1 /* AdSupport.framework in Frameworks */,
+				612D647D2929AEAB009F4D14 /* AdServices.framework in Frameworks */,
+				612D647B2929AEA0009F4D14 /* CoreSpotlight.framework in Frameworks */,
+				612D64792929AE94009F4D14 /* WebKit.framework in Frameworks */,
 				67FD950A1A4D25D100D6BFA8 /* CoreTelephony.framework in Frameworks */,
+				612D64772929AE87009F4D14 /* SystemConfiguration.framework in Frameworks */,
+				612D64752929AE7D009F4D14 /* CoreServices.framework in Frameworks */,
+				612D64722929AE3B009F4D14 /* Branch in Frameworks */,
 				6705924019BBEBC40039DAE1 /* Social.framework in Frameworks */,
 				67FD94D11A4D250C00D6BFA8 /* FacebookSDK.framework in Frameworks */,
 				6705923E19BBE22D0039DAE1 /* MessageUI.framework in Frameworks */,
 				6705923B19BBD0060039DAE1 /* UIKit.framework in Frameworks */,
-				6705921019BBB7430039DAE1 /* AdSupport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		612D64732929AE7D009F4D14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				612D64802929AEC7009F4D14 /* LinkPresentation.framework */,
+				612D647E2929AEB9009F4D14 /* StoreKit.framework */,
+				612D647C2929AEAB009F4D14 /* AdServices.framework */,
+				612D647A2929AEA0009F4D14 /* CoreSpotlight.framework */,
+				612D64782929AE94009F4D14 /* WebKit.framework */,
+				612D64762929AE87009F4D14 /* SystemConfiguration.framework */,
+				612D64742929AE7D009F4D14 /* CoreServices.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		670591E019BBAC630039DAE1 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +214,7 @@
 				6705923A19BBD0060039DAE1 /* UIKit.framework */,
 				6705920F19BBB7430039DAE1 /* AdSupport.framework */,
 				670591EA19BBAC630039DAE1 /* Products */,
+				612D64732929AE7D009F4D14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -367,6 +405,9 @@
 			dependencies = (
 			);
 			name = BranchMonsterFactory;
+			packageProductDependencies = (
+				612D64712929AE3B009F4D14 /* Branch */,
+			);
 			productName = BranchBots;
 			productReference = 670591E919BBAC630039DAE1 /* Branchsters.app */;
 			productType = "com.apple.product-type.application";
@@ -382,7 +423,6 @@
 				TargetAttributes = {
 					670591E819BBAC630039DAE1 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 38N77EFLKC;
 					};
 				};
 			};
@@ -396,6 +436,9 @@
 				Base,
 			);
 			mainGroup = 670591E019BBAC630039DAE1;
+			packageReferences = (
+				612D64702929AE3B009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */,
+			);
 			productRefGroup = 670591EA19BBAC630039DAE1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,7 +631,10 @@
 					"$(PROJECT_DIR)/BranchMonsterFactory/ExternalLibs",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/BranchMonsterFactory/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.branchmetrics.ambuj-Branchsters";
 				PRODUCT_NAME = Branchsters;
 				PROVISIONING_PROFILE = "";
@@ -611,7 +657,10 @@
 					"$(PROJECT_DIR)/BranchMonsterFactory/ExternalLibs",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/BranchMonsterFactory/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.branchmetrics.ambuj-Branchsters";
 				PRODUCT_NAME = Branchsters;
 				PROVISIONING_PROFILE = "";
@@ -641,6 +690,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		612D64702929AE3B009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BranchMetrics/ios-branch-sdk-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		612D64712929AE3B009F4D14 /* Branch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 612D64702929AE3B009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */;
+			productName = Branch;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 670591E119BBAC630039DAE1 /* Project object */;
 }
