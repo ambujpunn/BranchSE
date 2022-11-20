@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		46FD92CE1A9AD0A70028A385 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FD945E1A4D250C00D6BFA8 /* Main.storyboard */; };
 		612D646F2929AB29009F4D14 /* BranchMonsterFactory.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 612D646E2929A878009F4D14 /* BranchMonsterFactory.entitlements */; };
-		612D64722929AE3B009F4D14 /* Branch in Frameworks */ = {isa = PBXBuildFile; productRef = 612D64712929AE3B009F4D14 /* Branch */; };
 		612D64752929AE7D009F4D14 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D64742929AE7D009F4D14 /* CoreServices.framework */; };
 		612D64772929AE87009F4D14 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D64762929AE87009F4D14 /* SystemConfiguration.framework */; };
 		612D64792929AE94009F4D14 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D64782929AE94009F4D14 /* WebKit.framework */; };
@@ -17,6 +16,7 @@
 		612D647D2929AEAB009F4D14 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D647C2929AEAB009F4D14 /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		612D647F2929AEB9009F4D14 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D647E2929AEB9009F4D14 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		612D64812929AEC7009F4D14 /* LinkPresentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612D64802929AEC7009F4D14 /* LinkPresentation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		612D648A2929B963009F4D14 /* Branch in Frameworks */ = {isa = PBXBuildFile; productRef = 612D64892929B963009F4D14 /* Branch */; };
 		6705921019BBB7430039DAE1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6705920F19BBB7430039DAE1 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6705923B19BBD0060039DAE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6705923A19BBD0060039DAE1 /* UIKit.framework */; };
 		6705923E19BBE22D0039DAE1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6705923D19BBE22D0039DAE1 /* MessageUI.framework */; };
@@ -178,8 +178,8 @@
 				612D64792929AE94009F4D14 /* WebKit.framework in Frameworks */,
 				67FD950A1A4D25D100D6BFA8 /* CoreTelephony.framework in Frameworks */,
 				612D64772929AE87009F4D14 /* SystemConfiguration.framework in Frameworks */,
+				612D648A2929B963009F4D14 /* Branch in Frameworks */,
 				612D64752929AE7D009F4D14 /* CoreServices.framework in Frameworks */,
-				612D64722929AE3B009F4D14 /* Branch in Frameworks */,
 				6705924019BBEBC40039DAE1 /* Social.framework in Frameworks */,
 				67FD94D11A4D250C00D6BFA8 /* FacebookSDK.framework in Frameworks */,
 				6705923E19BBE22D0039DAE1 /* MessageUI.framework in Frameworks */,
@@ -406,7 +406,7 @@
 			);
 			name = BranchMonsterFactory;
 			packageProductDependencies = (
-				612D64712929AE3B009F4D14 /* Branch */,
+				612D64892929B963009F4D14 /* Branch */,
 			);
 			productName = BranchBots;
 			productReference = 670591E919BBAC630039DAE1 /* Branchsters.app */;
@@ -423,6 +423,7 @@
 				TargetAttributes = {
 					670591E819BBAC630039DAE1 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -437,7 +438,7 @@
 			);
 			mainGroup = 670591E019BBAC630039DAE1;
 			packageReferences = (
-				612D64702929AE3B009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */,
+				612D64882929B963009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */,
 			);
 			productRefGroup = 670591EA19BBAC630039DAE1 /* Products */;
 			projectDirPath = "";
@@ -621,6 +622,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BranchMonsterFactory/BranchMonsterFactory.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -638,6 +640,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.branchmetrics.ambuj-Branchsters";
 				PRODUCT_NAME = Branchsters;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BranchMonsterFactory/ViewControllers/BranchMonsterFactory-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -647,6 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BranchMonsterFactory/BranchMonsterFactory.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -664,6 +670,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.branchmetrics.ambuj-Branchsters";
 				PRODUCT_NAME = Branchsters;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BranchMonsterFactory/ViewControllers/BranchMonsterFactory-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -692,20 +700,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		612D64702929AE3B009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */ = {
+		612D64882929B963009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BranchMetrics/ios-branch-sdk-spm";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		612D64712929AE3B009F4D14 /* Branch */ = {
+		612D64892929B963009F4D14 /* Branch */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 612D64702929AE3B009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */;
+			package = 612D64882929B963009F4D14 /* XCRemoteSwiftPackageReference "ios-branch-sdk-spm" */;
 			productName = Branch;
 		};
 /* End XCSwiftPackageProductDependency section */
