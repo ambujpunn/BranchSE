@@ -274,10 +274,9 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
         self.lp.channel = @"sms";
         [self.buo getShortUrlWithLinkProperties:self.lp andCallback:^(NSString* url, NSError* error) {
             if (!error) {
-            [weakSelf.progressBar hide];
-            
-            smsViewController.body = [NSString stringWithFormat:@"Check out my Branchster named %@ at %@", self.monsterName, url];
-            [weakSelf presentViewController:smsViewController animated:YES completion:nil];
+                [weakSelf.progressBar hide];
+                smsViewController.body = [NSString stringWithFormat:@"Check out my Branchster named %@ at %@", self.monsterName, url];
+                [weakSelf presentViewController:smsViewController animated:YES completion:nil];
             }
         }];
     } else {

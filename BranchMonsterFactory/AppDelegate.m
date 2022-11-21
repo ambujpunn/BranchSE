@@ -24,7 +24,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
     __block UIViewController *nextVC;
     
-    // Set up Branch Init
+    // Set up Branch
     
     [[Branch getInstance] initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary * _Nullable params, NSError * _Nullable error) {
         // do stuff with deep link data (nav to page, display content, etc)
@@ -65,9 +65,6 @@
         [navController setViewControllers:@[nextVC] animated:YES];
     }];
     
-    
-   
-    
     return YES;
 }
 
@@ -79,6 +76,11 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
     
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+    [[Branch getInstance] continueUserActivity:userActivity];
     return YES;
 }
 
