@@ -80,6 +80,7 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
         _lp.tags = @[@"one", @"two", @"three"];
          */
         
+        [_lp addControlParam:@"monster" withValue: branchDict[@"monster"]];
         [_lp addControlParam:@"color_index" withValue: branchDict[@"color_index"]];
         [_lp addControlParam:@"body_index" withValue: branchDict[@"body_index"]];
         [_lp addControlParam:@"face_index" withValue: branchDict[@"face_index"]];
