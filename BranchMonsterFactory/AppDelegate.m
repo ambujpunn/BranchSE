@@ -33,7 +33,6 @@
     
     [[Branch getInstance] initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary * _Nullable params, NSError * _Nullable error) {
         // do stuff with deep link data (nav to page, display content, etc)
-        NSLog(@"%@", params);
         
         // If the key 'monster' is present in the deep link dictionary
         // then load the monster viewer with the appropriate monster parameters

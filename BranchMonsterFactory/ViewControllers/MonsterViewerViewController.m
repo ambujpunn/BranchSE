@@ -57,11 +57,6 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
         _buo.title = branchDict[@"$og_title"];
         _buo.contentDescription = branchDict[@"$og_description"];
         _buo.imageUrl = branchDict[@"$og_image_url"];
-        /*
-        _buo.publiclyIndex = YES;
-        _buo.locallyIndex = YES;
-        _buo.contentMetadata.customMetadata[@"key1"] = @"value1";
-         */
     }
     return _buo;
 }
@@ -72,14 +67,6 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
         NSDictionary *branchDict = [self prepareBranchDict];
         
         _lp = [[BranchLinkProperties alloc] init];
-        /*
-        _lp.feature = @"facebook";
-        _lp.channel = @"sharing";
-        _lp.campaign = @"content 123 launch";
-        _lp.stage = @"new user";
-        _lp.tags = @[@"one", @"two", @"three"];
-         */
-        
         [_lp addControlParam:@"monster" withValue: branchDict[@"monster"]];
         [_lp addControlParam:@"color_index" withValue: branchDict[@"color_index"]];
         [_lp addControlParam:@"body_index" withValue: branchDict[@"body_index"]];
@@ -130,33 +117,6 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     BranchEvent *event = [BranchEvent customEventWithName:@"monster_view"];
     event.customData = self.monsterMetadata;
     [event logEvent];
-    
-    
-    
-    /*
-    // Get branch dict
-    NSDictionary *branchDict = [self prepareBranchDict];
-    
-    BranchUniversalObject *buo = [[BranchUniversalObject alloc] initWithCanonicalIdentifier:@"content/my-monster"];
-    buo.title = branchDict[@"$og_title"];
-    buo.contentDescription = branchDict[@"$og_description"];
-    buo.imageUrl = branchDict[@"$og_image_url"];
-    buo.publiclyIndex = YES;
-    buo.locallyIndex = YES;
-    buo.contentMetadata.customMetadata[@"key1"] = @"value1";
-    
-    BranchLinkProperties *lp = [[BranchLinkProperties alloc] init];
-    lp.feature = @"facebook";
-    lp.channel = @"sharing";
-    lp.campaign = @"content 123 launch";
-    lp.stage = @"new user";
-    lp.tags = @[@"one", @"two", @"three"];
-    
-    [lp addControlParam:@"color_index" withValue: branchDict[@"color_index"]];
-    [lp addControlParam:@"body_index" withValue: branchDict[@"body_index"]];
-    [lp addControlParam:@"face_index" withValue: branchDict[@"face_index"]];
-    [lp addControlParam:@"monster_name" withValue: branchDict[@"monster_name"]];
-     */
     
     // #9 TODO: load a URL just for display on the viewer page
     
