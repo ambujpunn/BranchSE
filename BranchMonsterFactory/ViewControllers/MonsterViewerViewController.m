@@ -132,9 +132,6 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     [event logEvent];
     
     
-    // #9 TODO: load a URL just for display on the viewer page
-    
-    // Get short URL
     
     /*
     // Get branch dict
@@ -160,6 +157,10 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     [lp addControlParam:@"face_index" withValue: branchDict[@"face_index"]];
     [lp addControlParam:@"monster_name" withValue: branchDict[@"monster_name"]];
      */
+    
+    // #9 TODO: load a URL just for display on the viewer page
+    
+    // Get short URL
 
     __weak MonsterViewerViewController *weakSelf = self;
     [self.buo getShortUrlWithLinkProperties:self.lp andCallback:^(NSString* url, NSError* error) {

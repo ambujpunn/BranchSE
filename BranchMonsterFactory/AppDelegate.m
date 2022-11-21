@@ -26,6 +26,11 @@
     
     // Set up Branch
     
+    // enable pasteboard check for iOS 15+ only
+    if (@available(iOS 15.0, *)) {
+        [[Branch getInstance] checkPasteboardOnInstall];
+    }
+    
     [[Branch getInstance] initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary * _Nullable params, NSError * _Nullable error) {
         // do stuff with deep link data (nav to page, display content, etc)
         NSLog(@"%@", params);
