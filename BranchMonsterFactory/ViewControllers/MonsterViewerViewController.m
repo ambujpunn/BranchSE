@@ -48,6 +48,7 @@
 static CGFloat MONSTER_HEIGHT = 0.4f;
 static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
 
+// Using lazy loading
 - (BranchUniversalObject *)buo {
     if (_buo == nil) {
         // Get branch dict
@@ -61,6 +62,7 @@ static CGFloat MONSTER_HEIGHT_FIVE = 0.55f;
     return _buo;
 }
 
+// Using lazy loading
 - (BranchLinkProperties *)lp {
     if (_lp == nil) {
         // Get branch dict
